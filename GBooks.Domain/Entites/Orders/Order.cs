@@ -7,7 +7,7 @@ using GBooks.Domain.Entites.Supliers;
 using GBooks.Domain.Entites.Users;
 using GBooks.Domain.Enums;
 
-namespace GBooks.Domain.Entites.Order;
+namespace GBooks.Domain.Entites.Orders;
 
 public class Order : BaseEntity
 {

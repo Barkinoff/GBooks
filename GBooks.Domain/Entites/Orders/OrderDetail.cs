@@ -4,7 +4,7 @@ using GBooks.Domain.Commons;
 using GBooks.Domain.Entites.Books;
 using GBooks.Domain.Entites.Carts;
 
-namespace GBooks.Domain.Entites.Order;
+namespace GBooks.Domain.Entites.Orders;
 
 public class OrderDetail : BaseEntity
 {
@@ -18,4 +18,7 @@ public class OrderDetail : BaseEntity
 
     public long CartItemId { get; set; }
     public CartItem CartItem { get; set; }
+
+    public long OrderId { get; set; }
+    public Order Order { get; set; }
 }

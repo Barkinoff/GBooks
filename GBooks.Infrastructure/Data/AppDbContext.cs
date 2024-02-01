@@ -1,13 +1,13 @@
-﻿
-
-using GBooks.Domain.Commons;
+﻿using GBooks.Domain.Commons;
 using GBooks.Domain.Entites.Addresses;
 using GBooks.Domain.Entites.Attachments;
+using GBooks.Domain.Entites.Blogs;
 using GBooks.Domain.Entites.Books;
 using GBooks.Domain.Entites.Carts;
 using GBooks.Domain.Entites.Categories;
 using GBooks.Domain.Entites.Discounts;
-using GBooks.Domain.Entites.Order;
+using GBooks.Domain.Entites.Feedbacks;
+using GBooks.Domain.Entites.Orders;
 using GBooks.Domain.Entites.Payments;
 using GBooks.Domain.Entites.Supliers;
 using GBooks.Domain.Entites.Users;
@@ -34,6 +34,8 @@ namespace GBooks.Infrastructure.Data
         public DbSet<Suplier> Supliers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -162,6 +164,36 @@ namespace GBooks.Infrastructure.Data
                 HasOne(u => u.Payment).
                 WithOne().
                 HasForeignKey<Order>(u => u.PaymentId);
+
+            modelBuilder.Entity<OrderDetail>().
+                HasOne(u => u.Book).
+                WithOne().
+                HasForeignKey<OrderDetail>(u => u.BookId);
+
+            modelBuilder.Entity<OrderDetail>().
+                HasOne(u => u.CartItem).
+                WithOne().
+                HasForeignKey<OrderDetail>(u => u.CartItemId);
+
+            modelBuilder.Entity<OrderDetail>().
+                HasOne(u => u.Order).
+                WithOne().
+                HasForeignKey<OrderDetail>(u => u.OrderId);
+
+            modelBuilder.Entity<Blog>().
+                HasOne(u => u.Attachment).
+                WithOne().
+                HasForeignKey<Blog>(u => u.AttachmentId);
+
+            modelBuilder.Entity<Feedback>().
+                HasOne(u => u.User).
+                WithOne().
+                HasForeignKey<Feedback>(u => u.UserId);
+
+            modelBuilder.Entity<Feedback>().
+                HasOne(u => u.Book).
+                WithOne().
+                HasForeignKey<Feedback>(u => u.BookId);
 
             base.OnModelCreating(modelBuilder);
         }
