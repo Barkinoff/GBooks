@@ -1,5 +1,4 @@
-﻿using GBooks.Domain.Commons;
-using GBooks.Domain.Entites.Addresses;
+﻿using GBooks.Domain.Entites.Addresses;
 using GBooks.Domain.Entites.Attachments;
 using GBooks.Domain.Entites.Blogs;
 using GBooks.Domain.Entites.Books;
@@ -7,6 +6,7 @@ using GBooks.Domain.Entites.Carts;
 using GBooks.Domain.Entites.Categories;
 using GBooks.Domain.Entites.Discounts;
 using GBooks.Domain.Entites.Feedbacks;
+using GBooks.Domain.Entites.Languages;
 using GBooks.Domain.Entites.Orders;
 using GBooks.Domain.Entites.Payments;
 using GBooks.Domain.Entites.Supliers;
@@ -184,6 +184,11 @@ namespace GBooks.Infrastructure.Data
                 HasOne(u => u.Attachment).
                 WithOne().
                 HasForeignKey<Blog>(u => u.AttachmentId);
+
+            modelBuilder.Entity<Blog>().
+                HasOne(u => u.Language).
+                WithOne().
+                HasForeignKey<Blog>(u => u.LanguageId);
 
             modelBuilder.Entity<Feedback>().
                 HasOne(u => u.User).

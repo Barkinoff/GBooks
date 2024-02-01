@@ -4,6 +4,7 @@ using GBooks.Domain.Commons;
 using GBooks.Domain.Entites.Attachments;
 using GBooks.Domain.Entites.Categories;
 using GBooks.Domain.Entites.Discounts;
+using GBooks.Domain.Entites.Languages;
 
 namespace GBooks.Domain.Entites.Books;
 

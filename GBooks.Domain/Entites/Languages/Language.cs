@@ -1,8 +1,7 @@
-﻿
+﻿using GBooks.Domain.Commons;
 
-using GBooks.Domain.Enums;
 
-namespace GBooks.Domain.Commons
+namespace GBooks.Domain.Entites.Languages
 {
     public class Language : BaseEntity
     {

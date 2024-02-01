@@ -1,8 +1,6 @@
-﻿
-using GBooks.Domain.Commons;
+﻿using GBooks.Domain.Commons;
 using GBooks.Domain.Entites.Attachments;
-using GBooks.Domain.Entites.Books;
-using GBooks.Domain.Entites.Users;
+using GBooks.Domain.Entites.Languages;
 
 namespace GBooks.Domain.Entites.Blogs;
 
@@ -13,4 +11,7 @@ public class Blog : BaseEntity
 
     public long AttachmentId { get; set; }
     public Attachment Attachment { get; set; }
+
+    public long LanguageId { get; set; }
+    public Language Language { get; set; }
 }
